@@ -1,0 +1,68 @@
+session initiation protocol
+
+layer 7 - application layer 
+
+voip
+media communication session and is primarily used to set up and terminate voice or video calls.
+between two points create, modify, and terminate a multimedia session over the Internet Protocol
+
+IEFTF - RFC 3261
+
+
+client - server architecture
+SIP embodies client-server architecture and the use of URL and URI from HTTP and a text encoding scheme and a header style from SMTP
+
+sip is independent of beneath layer protocols - tcp/udp
+
+Typically, the SIP protocol is used for internet telephony and multimedia distribution between two or more endpoints.
+ For example, one person can initiate a telephone call to another person using SIP,
+ or someone may create a conference call with many participants.
+ 
+
+very simple, with a limited set of commands
+
+SIP URI - uniform resource identifier
+network elements
+
+Total 5 elements
+
+user agent - It is the endpoint  ,  could be a softphone, a mobile, or a laptop.
+User Agent Client (UAC) - sends request & receive response
+User Agent Server (UAS) - receives request & send response
+
+caller - client , callee - server
+
+proxy server
+Basically the role of a proxy server is much like a router. - need to forward
+intelligent enough to send
+maximum of 70 proxy servers in between a source and a destination.
+stateless - doesnt store anything.. simple forwards
+stateful - store the messages can be used for future refer
+
+Registrar Server
+every user in the same domain has to regiter with this server.. accepts the registration  
+It stores the URI and the location of users in a database to help others
+
+redirect server
+The redirect server receives requests and looks up the intended recipient 
+of the request in the location database created by the registrar.
+
+
+location server
+The location server provides information about a caller's possible locations to the redirect and proxy servers
+Only a proxy server or a redirect server can contact a location server.
+
+SIP architecture
+
+TRANSACTION User - Each of the SIP entities
+
+TRANSACTION LAYER - A transaction is a request sent by a Client transaction (using the transport layer) to a Server transaction
+
+TRansport LAYER - It defines how a Client sends requests and receives responses and 
+how a Server receives requests and sends responses over the network
+
+Syntax & encoding -  Its encoding is specified using an augmented Backus-Naur Form grammar (BNF).
+
+
+SIP messages are of two types − requests and responses.
+

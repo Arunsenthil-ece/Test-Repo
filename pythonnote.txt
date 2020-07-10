@@ -1,0 +1,293 @@
+PYTHON
+ opensource
+ easy to learn
+ modules
+interactive
+OOPS - object oriented programming structure - class
+
+DATA TYPES
+NUMBER
+STRING - ''/""/'''/"""
+LIST - []
+TUPLE - ()
+DICTIONARY- key : value {}
+            Name : Arun
+            Class : XII
+SET - [1,2]
+
+
+MUTABLE-LIST
+IMMUTABLE-STRING,TUPLE
+DICTIONARY
+
+
+binary operations
+
+1 or 1 = 1
+1 and 1 = 1
+1 and 0 = 0
+1 or 0 = 1
+ <<
+ >>
+
+8421
+1010
+0100 <<
+0101  >>
+
+
+llo
+234
+
+str.find(pattern,begindex,endindex)
+a='hello'
+a.find('e')
+1
+a.find('e',2,4)
+-1
+
+
+tup1 , tup2
+5
+tup1 == tup2 === 0
+5         5
+tup1 > tup2 ==1
+5        4
+tup2  > tup1 === -1
+5        7
+
+a=1
+while True:
+
+ERROR Handling
+exceptional handling
+
+
+try:
+  expression
+except:
+
+TypeError
+ValueError
+KeyError
+IndentationError
+KeyboardIntreprut error
+
+re.match(pattern, string, flags=0)
+re.search(pattern, string, flags=0)
+re.sub(pattern, repl, string, max=0)
+re.findall()
+
+whenever you are forming a generic pattern 
+i) start of the the pattern
+ii) what does it contains or its pattern type - alphabets,numbers,spl chrts or combination
+iii) end of the pattern
+
+
+charac    min     max
++          1       n
+*          0       n
+?          0       1
+{min,max}  1       4
+{0,5} --- min 0 max - 5 0 - 5 
+{2,6} --- min 2 max 6
+{4} --- exactly 4 --- 3 fails, 5 fails -- exactly 4
+may/maynot occur but if it occurs it should occur only one time
+
+
+1-126
+1-9,10-99,100-126
+1-9 --- [1-9]
+10-99  --- [1-9][0-9]
+100-126 --- [1][0-2][0-6]
+[1-9]|[1-9][0-9]|[1][0-2][0-6]
+
+
+127-191   121
+127-129  -- [1][2][7-9]
+130-189  -- [1][3-8][0-9]
+190-191  -- [1][9][0-1]
+
+ip="224.1.1.1" - 255
+re.search("^([1-9]|[1-9][0-9]|[1][0-2][0-6])\.", ip)
+128.10.1.2
+ 127 - 191 - 1[2-9][7]
+              1 9 1
+1-255.0-255.0-255.0-255
+
+[1][2][7-9]|[1][3-8][0-9]|[1][9][0-1]
+
+OOPS
+Object Oriented Programming Structure
+
+take object and it will define its charactes with attributes
+
+program for a car company
+           obj1        obj2        obj3
+car      maruti      hyundai     honda
+type      sedan         hatch     suv
+seater     4+1           4+1       6+1
+wheels      4             4         4
+engine      pet         die        gas
+etc..
+
+class  - define set of attributes that characterize the object
+class variable - variables used in the class
+
+class class_name:
+   "documentation"
+   def func1():
+   def func2():
+
+class student
+name,age,rollno,grade
+student_name
+name,age
+student_details
+name,age,rollno,grade
+
+class calculator1:  ---- parent class
+   add
+   sub
+
+class calculator2(calculator):  ---- child class
+   mult
+   div
+
+class child(father,mother): ---- multiple inheritence
+ multilevel inheritance
+class father:
+    def print_father_char(self):    ---- father
+       print("father character")
+
+class son(father):
+    def print_son_char(self):       ----- father + son
+       print("son character")
+
+class grandson(son):
+    def print_grandson_char(self):  ---- father + son + granson
+      print("i am the grandson")
+
+
+mutilevel inheritance
+parent
+child1(parent)
+child2(child1)
+child3(child2)  ---- parent + child1 + child2 + child3
+
+multiple inheritance
+parent
+child1
+child2
+child3(parent,child1,child2) -- parent + child1 + child2 + child3
+
+base overloading
+class parent:
+   def test_func(self):
+      print("Namaste India")
+   def test_func1(self):
+      print("good morning")
+
+class child(parent):
+   def test_func(self):
+      print("hello world")
+
+scenario 1 - multilevel inheritance
+release 1
+   parent   --- starting from scratch
+release 2
+   child(parent)
+release 3
+   child1(child)
+
+scenario 2 - multiple inheritance
+enhancement
+parent1, child1 , child2
+child3(parent1,child1,child2)
+
+points learnt today
+===================
+i) how to directly modify class variable - class.var = "12"
+ii) function variables -- variable only to a particular function
+iii) ineritance
+iv) multiple inheritance
+v) multilevel inheritance
+vi) base overloading
+
+single inheritance
+===================
+class siva/gaytri:
+  print my_name:
+    yourname
+class child(siva/gaytri):
+   print child_nme:
+     childname
+
+mulitple inheritance
+===================
+class siva/gaytri:
+  print my_name:
+    yourname
+class husbandname:
+   print hus_name:
+      husbandname
+class child(siva/gaytri,husbandname):
+   print child_nme:
+     childname
+
+multilevel inheritance
+===================
+class fathername:
+  print fathe_name:
+    fathername
+class siva/gaytri(fathername):
+   print my_name:
+      my_name
+class child(siva/gaytri):
+   print child_nme:
+     childname
+
+file_object=open(filename,mode)
+file1=open(test.py,r+) --- if file doesnot exist then it will throw error
+file2=open(test.py, w/w+) --- if file doesnot exist then it will create a new file
+r - read
+r+ - read + write - over write
+w - write
+w+ - write + read - over write
+a - append - it will append to the existing file content
+a+  append | read
+test.py
+this is my world
+
+going to write -- this is my city
+r+/w+ -- this is my city
+a/a+ -- write
+a+ -- read + write
+
+1000 lines
+auto biography of gandhi
+gandhi to mandela
+open file 
+read line by line
+in your line content if gandhi(regexp).. replace(mandela)
+write to a new file with this new content
+\n
+
+
+class example:
+   def printing(self): instance method
+       print("test")
+
+ex1=example()
+
+define a class called car - class
+maruthi = car()
+object    class
+honda = car()
+object   class
+hyundai = car()
+object    class
+
+instance method
+class method
+static method

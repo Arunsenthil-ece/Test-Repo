@@ -1,0 +1,216 @@
+go lang learning
+
+Go is case-sensitive.
+A Go program consists of various tokens. 
+A token is either a keyword, an identifier, a constant, a string literal, or a symbol.
+line separator - no specific line separator.. EoL... go will add ; 
+whitespace should be there
+A Go identifier is a name used to identify a variable, function, or any other user-defined item.
+letters+integers+__ -- no other special characters
+set of reserved keywords which cannot be used as identifiers
+
+data types - variable type determines it storage type
+boolean - true/false
+numeric - integer/float
+string - immutable, its value is sequence of bytes.
+derived - pointer, array, structure, union, function, slice, interface, map, channel
+
+integer types
+uint8 , uint16, uint32, uint64 - unsigned based on size it varies from 0 to 18446744073709551615, the numerice value indicates bit size
+int8, int16, int 32, int64 - signed 
+
+float types
+float32,float64
+complex64,complex128 
+
+other
+byte - same as uint8
+int - 32/64
+uint - 32/64
+
+variable declaration
+
+var variable_list optional_data_type;  -- only same data type --- default value is 0
+d=3 - when we assign directly go will judge based on value passed
+
+static declaration -- we tell compiler that variable x will be float
+var x float64
+x = 20.0
+
+dynamic declaration -- compiler will judge based on declaration
+var x float64 = 20.0
+y := 40 -- type inference
+
+Mixed variable declaration
+var a, b, c = 3, 4, "foo"
+
+expressionstype
+lvalue -- variables can come on both side, x=20.0
+rvalue -- data value.. can come only on right side not on left side 
+
+Go Constants
+fixed values - literals
+Constants are treated just like regular variables except that their values cannot be modified after their definition.
+
+integer literal - 0x/0X - hexadecimal, 0 - octal, suffix U - unsigned, L - long
+212
+215u
+0xFeeL
+
+floating literal - decimal/exponential 
+3.14159       /* Legal */
+314159E-5L    /* Legal */
+
+escape sequence are there in go as well
+
+string literals - within ""
+
+const variable type = value;
+const LENGTH int = 10
+
+Operators
+arithmetic - +,-,*,/,%,++,--
+relational - ==,!=,>,<,>=,<=
+logical - &&, || , ! - and,or,not
+bitwise - & , | , ^ , << , >> -- AND , OR , XOR , left shift, right shift
+assignment - = , += , -=, *=, /= , %=, <<= , >>= , &=, |= , ^=
+misc - & - before a vairable will give address, * before a variable pprovides pointer
+
+Conditional statement
+if.. elseif.. nestedif
+
+switch - any number of case, optional default case, no break needed
+expressionswitch - checks expression , compares value
+typeswitch - checks variable type
+
+select 
+type for a case must be the a communication channel operation. 
+
+loop statement
+for loop, nested for loop
+for - condition , ( init; condition; increment ) , Range (range command will take through the string/list)
+break - breaks the loop
+continue - continues the loop
+goto - goes to that statement
+
+function
+fun funcname parameters returntype(optional)
+if function returns a value then returntype is must
+call by value -- normal argument passing
+call by reference -- use &,* operators
+we can create function on the go -- inside main function
+return a funtion to another function - function as a value
+getSquareRoot := func(x float64) float64 {
+      return math.Sqrt(x)
+   }
+func getSequence() func() int {
+   i:=0
+   return func() int {
+      i+=1
+      return i  
+   }
+}
+methods - spl function type
+using a receiver we will call the function
+
+variable's scope
+local(inside function)
+global (outside all functions)
+function parameter (formal)
+
+strings - var g = "hello" is different from g := []string{"hello","hi}
+array - collection of variables of same type
+var variable_name [SIZE] variable_type
+var test [6] int
+var balance [10] float32
+array is list
+we can declare items upto the size.. it we are not giving no.of elements to match size then it will fill with empty values
+
+multi dimensional array
+var variable_name [SIZE1][SIZE2]...[SIZEN] variable_type
+var threedim [5][10][4]int
+var arrx = [3][3]int{{1,2,3},{4,5,6},{7,8,9}}
+
+you can pass an array as input to functions
+sized - func funcname(arr [size]variable_type)
+unsized - func funcname(arr []variable_type)
+
+pointers
+
+A pointer is a variable whose value is the address of another variable, i.e., direct address of the memory location
+var var_name *var-type -- type is base value type
+var ip *int
+ip - will give the value
+*ip - will give the value stored in memory
+
+for nil pointer, memory will be 0, when we try to retrieve value it will through runtime error
+
+Structures
+basically a list like datatype.. it will allow different data type unlike array
+type variable_type sturct {
+var i int
+var j float32
+}
+variable_name := structure_variable_type {value1, value2...valuen}
+type circle struct {
+var i int
+var j float32
+}
+
+slice
+Go Slice is an abstraction over Go Array.It provides many utility functions required on Array
+numbers = make([]int,5,5) - slice of length - 5 and capacity 5
+in array we cannot increase the size but in slice we can
+capacity - will be the max length upto which we can extend
+length - will be actual length with data
+var test []int - var test = make([]int,0,0) - this will be empty slice with nil data 
+append - we can append one element only
+copy will copy to the new variable
+
+range
+The range keyword is used in for loop to iterate over items of an array, slice, channel or map
+aray/slice = returns index
+map = returns key
+
+Map
+key value pair
+
+var map_variable map[key_data_type]value_data_type
+map_variable = make(map[key_data_type]value_data_type)
+
+var countryCapitalMap map[string]string
+countryCapitalMap = make(map[string]string)
+countryCapitalMap["France"] = "Paris"
+countryCapitalMap["Italy"] = "Rome"
+countryCapitalMap["Japan"] = "Tokyo"
+countryCapitalMap["India"] = "New Delhi"
+delete fnction to delete a key - delete(countryCapitalMap,"France")
+
+Recursion
+same like python recursion
+
+type casting
+you can convert onve data type to other
+type_name(expression)
+
+var sum int = 17
+var count int = 5
+var mean float32   
+mean = float32(sum)/float32(count)
+   
+now sum,count are int type - so mean cannot have that.. need to convert sum,count to float32 type
+
+Interfaces
+The struct data type implements these interfaces to have method definitions 
+methods are like functions to an object
+where are interfaces are used to built function specific to the struct datatype.
+
+Error handling
+
+import errors
+func Sqrt(value float64) (float64, error) {
+   if(value < 5){
+      return 0, errors.New("Math: negative number passed to Sqrt")
+   }
+   return math.Sqrt(value), nil
+}
